@@ -23,7 +23,7 @@ features = [
 _(You can also keep the feature disabled and define `RegisterCallbacks` manually)_
 
 Then while inside of your GMS2 project, open your extension and add a new function as seen on the image bellow:
-<img src="assets/fn_def.png">
+<img src="https://raw.githubusercontent.com/FssAy/async_load/master/assets/fn_def.png">
 
 Do not call this function, it will be executed automatically by the GMS2.
 
