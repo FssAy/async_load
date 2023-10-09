@@ -1,6 +1,8 @@
 #[macro_use]
 extern crate paste;
 
+#[cfg(test)]
+mod tests;
 pub mod types;
 pub mod ds_map;
 
