@@ -1,0 +1,12 @@
+# Build files
+/target
+/Cargo.lock
+/example/target
+/example/Cargo.lock
+
+# Dev files
+/src/_ds_map.rs
+/notes.txt
+
+# IDE files
+/.idea
