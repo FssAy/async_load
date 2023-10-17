@@ -14,7 +14,7 @@ It can be found in `src/lib.rs`.
 To activate it simply enable the `extension` feature:
 ```toml
 [dependencies.ds_map]
-version = "1.0.1"
+version = "1.0.2"
 features = [
     "extension",
 ]
