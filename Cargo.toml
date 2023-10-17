@@ -5,6 +5,8 @@ authors = ["FssAy"]
 edition = "2021"
 description = "Functionality to trigger GMS2 async events from Rust."
 license = "GPL-3.0-only"
+documentation = "https://docs.rs/async_load/latest/async_load/"
+repository = "https://github.com/FssAy/async_load"
 exclude = [
     "example/*",
 ]
