@@ -1,3 +1,34 @@
+//! # Async Load
+//! This crate contains functionality to trigger GMS2 async events and pass data into them by using a `ds_map` structure inside a global `async_load` variable.
+//!
+//! # How To Use
+//! In order to see how to use this library with your GMS2 extension, visit the [github repo](https://github.com/FssAy/async_load).
+//!
+//! # Example
+//! Rust:
+//! ```rust
+//! #[no_mangle]
+//! #[allow(non_snake_case, unused_variables)]
+//! pub unsafe extern "C" fn MyFunction() -> GMLDouble {
+//!     use std::thread::*;
+//!     use std::time::Duration;
+//!
+//!     // Spawn new thread.
+//!     spawn(|| {
+//!         // Wait for 1 second.
+//!         sleep(Duration::from_secs(1));
+//!
+//!         // Create and dispatch the map.
+//!         let mut map = DSMap::new();
+//!         map.add_double("key1", 21.37);
+//!         map.add_string("key2", "Hello from Rust!");
+//!         map.dispatch(EventType::Social);
+//!     });
+//!
+//!     GMLDouble::none()
+//! }
+//! ```
+
 #[macro_use]
 extern crate paste;
 
