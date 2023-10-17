@@ -39,6 +39,11 @@ impl GMLStringRead for GMLString {
     }
 
     fn as_str(&self) -> Result<&str, Utf8Error> {
+        // GML treats null pointers as a valid empty string for some reason...
+        if self.is_null() {
+            return Ok("");
+        }
+
         unsafe { CStr::from_ptr(*self).to_str() }
     }
 }

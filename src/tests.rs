@@ -48,6 +48,15 @@ fn gml_string_read_utf8() {
 }
 
 #[test]
+fn gml_string_safety() {
+    let gml_string_none = GMLString::none();
+    assert_eq!(
+        gml_string_none.as_str().unwrap(),
+        "",
+    );
+}
+
+#[test]
 fn event_type_conversion() {
     // --- invalid types
     assert_eq!(
