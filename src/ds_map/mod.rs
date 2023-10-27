@@ -128,6 +128,34 @@ impl DSMap {
         )
     }
 
+    /// Adds a new raw data to the map on a specific key.
+    ///
+    /// # Args
+    /// - `key`: The key of the value to add.
+    /// - `value`: Pointer to the data.
+    ///
+    /// # Return
+    /// Returns `bool` when the operation was successful.
+    /// This method might fail if the map doesn't exist, or the key was already inside of the map.
+    ///
+    /// # Safety
+    /// Do not execute this method if the internal GMS2 functions were not
+    /// registered using `DSMap::register_calls`.
+    ///
+    /// Make sure the raw value that the pointer points to is valid and will not be dealocated by Rust.
+    pub unsafe fn add_raw(&mut self, key: impl ToString, value: *const u8) -> bool {
+        // Will never fail if key is a valid String
+        let key_cstr = CString::new(
+            key.to_string()
+        ).unwrap();
+
+        (*FN_DS_MAP_ADD_STRING)(
+            self.map_id,
+            key_cstr.as_ptr(),
+            value as *const _,
+        )
+    }
+
     /// Triggers a specific async event inside of the GMS2 and passes the map into it.
     ///
     /// This map will be available in GMS2 as `async_load`.
