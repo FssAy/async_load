@@ -81,8 +81,6 @@ fn event_type_conversion() {
     );
 
     // --- valid types
-    let mut value = 0.0;
-
     let test_value = |value| {
         assert_eq!(
             EventType::from(value) as i32,
