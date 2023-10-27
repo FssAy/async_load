@@ -1,6 +1,6 @@
 [package]
 name = "async_load"
-version = "1.0.2"
+version = "1.0.3"
 authors = ["FssAy"]
 edition = "2021"
 description = "Functionality to trigger GMS2 async events from Rust."
